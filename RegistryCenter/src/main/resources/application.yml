@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+#申明应用的serverId
+spring:
+  application:
+    name: Registry-Center-Server
+# 配置数据库
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@172.1.1.34:1521:orcl
+    username: sundspwp_if
+    password: sunds
+
+# mybatis配置相关
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.sunyard.op.mybatis.model
+
+#注册到指定地址的eureka服务
+eureka:
+  instance:
+    hostname: 127.0.0.1
+  client:
+      #注册中心URL地址
+      serviceUrl:
+          defaultZone: http://172.1.10.153:8888/eureka/
